@@ -15,22 +15,22 @@ const TabNavigator = () => {
         tabBarIcon: ({focused}: any) => {
           let iconSource;
 
-          if (route.name === 'Main') {
+          if (route.name === 'Home') {
             iconSource = focused
-              ? require('../assets/icons/main-active.png')
-              : require('../assets/icons/main.png');
+              ? require('../../assets/home-active.png')
+              : require('../../assets/home.png');
           } else if (route.name === 'Love') {
             iconSource = focused
-              ? require('../assets/icons/love-active.png')
-              : require('../assets/icons/love.png');
+              ? require('../../assets/heart-active.png')
+              : require('../../assets/heart.png');
           } else if (route.name === 'Basket') {
             iconSource = focused
-              ? require('../assets/icons/basket-active.png')
-              : require('../assets/icons/basket.png');
+              ? require('../../assets/basket-active.png')
+              : require('../../assets/basket.png');
           } else if (route.name === 'Notification') {
             iconSource = focused
-              ? require('../assets/icons/notification-active.png')
-              : require('../assets/icons/notification.png');
+              ? require('../../assets/notification-active.png')
+              : require('../../assets/notification.png');
           }
 
           return (
@@ -44,13 +44,13 @@ const TabNavigator = () => {
             </>
           );
         },
-        tabBarLabel: () => null, 
+        tabBarLabel: () => null,
+        headerShown: false,
       })}>
-      <Tab.Screen name="Main" component={Main} />
+      <Tab.Screen name="Home" component={Main} />
       <Tab.Screen name="Love" component={Love} />
       <Tab.Screen name="Basket" component={Basket} />
       <Tab.Screen name="Notification" component={Notification} />
-      
     </Tab.Navigator>
   );
 };
