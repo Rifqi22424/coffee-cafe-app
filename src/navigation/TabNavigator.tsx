@@ -50,6 +50,7 @@ const TabNavigator = () => {
       <Tab.Screen name="Love" component={Love} />
       <Tab.Screen name="Basket" component={Basket} />
       <Tab.Screen name="Notification" component={Notification} />
+      
     </Tab.Navigator>
   );
 };
