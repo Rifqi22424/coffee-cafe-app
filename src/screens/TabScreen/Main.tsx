@@ -11,6 +11,9 @@ import {
   Platform,
 } from 'react-native';
 import React, {useState} from 'react';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
+import {CoffeeItem} from '../../models/coffeeItem';
+import {RootStackParamList} from '../../navigation/AppNavigator';
 
 const coffeeCategory = [
   'Capucino',
@@ -22,15 +25,6 @@ const coffeeCategory = [
   'Capucino',
   'Capucino',
 ];
-
-interface CoffeeItem {
-  id: number;
-  image: any;
-  rating: number;
-  title: string;
-  desc: string;
-  price: string;
-}
 
 const data: CoffeeItem[] = [
   {
@@ -89,6 +83,7 @@ const Main = () => {
   const itemWidth = width / 2 - itemMargin * 4;
 
   const [selectedIndex, setSelectedIndex] = useState<number | 0>(0);
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
   return (
     <View
@@ -180,7 +175,8 @@ const Main = () => {
           width: '100%',
         }}
         renderItem={({item}: {item: CoffeeItem}) => (
-          <View
+          <Pressable
+            onPress={() => navigation.navigate('Detail', {item})}
             style={{
               backgroundColor: 'white',
               borderRadius: 12,
@@ -271,7 +267,7 @@ const Main = () => {
                 </Text>
               </View>
             </View>
-          </View>
+          </Pressable>
         )}
       />
     </View>

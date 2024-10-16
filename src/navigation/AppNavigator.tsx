@@ -1,13 +1,26 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createNativeStackNavigator, NativeStackNavigationProp} from '@react-navigation/native-stack';
 import StartScreen from '../screens/StartScreen';
 // import Main from '../screens/TabScreen/Main';
 import Detail from '../screens/Detail';
 import Order from '../screens/Order';
 import TabNavigator from './TabNavigator';
+import { CoffeeItem } from '../models/coffeeItem';
 
-const Stack = createNativeStackNavigator();
+export type RootStackParamList = {
+  StartScreen: undefined;
+  MainTabs: undefined;
+  Detail: { item: CoffeeItem };  // Here we specify that Detail takes a CoffeeItem
+  Order: undefined;
+};
+
+type DetailScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'Detail'
+>;
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const AppNavigator = () => {
   return (
