@@ -1,6 +1,6 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Image, Text} from 'react-native';
+import {Image, Text, View} from 'react-native';
 import Main from '../screens/TabScreen/Main';
 import Love from '../screens/TabScreen/Love';
 import Basket from '../screens/TabScreen/Basket';
@@ -40,7 +40,15 @@ const TabNavigator = () => {
                 style={{width: 24, height: 24}}
                 resizeMode="contain"
               />
-              <Text>{route.name}</Text>
+              <View style={{height: 2}}></View>
+              <View
+                style={{
+                  height: 6,
+                  width: 12,
+                  backgroundColor: focused ? '#C67C4E' : 'white',
+                  borderRadius: 4,
+                }}></View>
+              <View style={{height: 6}}></View>
             </>
           );
         },

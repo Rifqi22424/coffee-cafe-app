@@ -3,6 +3,7 @@ import React from 'react';
 import {RouteProp} from '@react-navigation/native';
 import {RootStackParamList} from '../navigation/AppNavigator';
 import {CoffeeItem} from '../models/coffeeItem';
+import { style } from '../style/font_style';
 
 // Define the route prop for Detail
 type DetailScreenRouteProp = RouteProp<RootStackParamList, 'Detail'>;
@@ -16,15 +17,11 @@ const Detail = ({route}: DetailProps) => {
 
   return (
     <View>
-      <Text style={style.black}>{item.title}</Text>
-      <Text style={style.black}>{item.desc}</Text>
-      <Text style={style.black}>{item.price}</Text>
+      <Text style={style.medium}>{item.title}</Text>
+      <Text style={style.medium}>{item.desc}</Text>
+      <Text style={style.medium}>{item.price}</Text>
     </View>
   );
 };
-
-const style = StyleSheet.create({
-  black: {color: 'black'},
-});
 
 export default Detail;
